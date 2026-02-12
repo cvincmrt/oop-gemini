@@ -11,3 +11,4 @@ $kosik->pridajPolozku(new Produkt("dvere", 100));
 
 
 $kosik->vypisKosik();
+echo $kosik->celkovaSuma();

@@ -12,4 +12,12 @@ class Kosik{
             echo "{$produkt->getInfo()}<br>";
         }
     }
+
+    public function celkovaSuma(){
+        $suma = 0;
+        foreach($this->polozky as $produkt){
+            $suma += $produkt->getPrice();
+        }
+        return "Celkova suma:{$suma}";
+    }
 }
