@@ -1,4 +1,9 @@
 <?php
+interface SposobPlatby{
+    public function zaplat(float $suma): void;
+}
+
+
 
 class Produkt{
     private string $nazov;
