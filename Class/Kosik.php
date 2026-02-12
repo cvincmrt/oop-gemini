@@ -9,7 +9,7 @@ class Kosik{
 
     public function vypisKosik(){
         foreach($this->polozky as $produkt){
-            echo "{$produkt->getInfo()}\n";
+            echo "{$produkt->getInfo()}<br>";
         }
     }
 }
