@@ -13,11 +13,16 @@ class Kosik{
         }
     }
 
-    public function celkovaSuma(){
+    public function celkovaSuma(): float{
         $suma = 0;
         foreach($this->polozky as $produkt){
             $suma += $produkt->getPrice();
         }
-        return "Celkova suma:{$suma}";
+        return $suma;
+    }
+
+    public function zaplatit(SposobPlatby $metoda){
+        $suma = $this->celkovaSuma(); 
+        $metoda->zaplat($suma);
     }
 }
