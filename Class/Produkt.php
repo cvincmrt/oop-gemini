@@ -1,9 +1,4 @@
 <?php
-interface SposobPlatby{
-    public function zaplat(float $suma): void;
-}
-
-
 
 class Produkt{
     private string $nazov;
@@ -18,7 +13,7 @@ class Produkt{
         return "Produkt: {$this->nazov}, Cena: {$this->cena} Euro.";
     }
 
-    public function getPrice(): float{
-        return "$this->cena";
+    public function getPrice(): string{
+        return $this->cena;
     }
 }
