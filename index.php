@@ -12,9 +12,17 @@ $kosik->pridajPolozku(new Elektronika("lampa", 250, 8));
 $kosik->pridajPolozku(new Potravina("paradajky", 50, "14. 02. 2026"));
 
 //Visa, ApplePay, Dobierka
-$metoda = new Dobierka();
+//$metoda = new Dobierka();
 
-$kosik->zaplatit($metoda);
+//$kosik->zaplatit($metoda);
 
 //$kosik->vypisKosik();
 //echo $kosik->celkovaSuma();
+
+$database = new Database();
+
+if($database->nadviazSpojenie()){
+    echo "Databaza je pripojena";
+}else{
+    echo "Pripojenie k databaze sa nepodarilo";
+}
