@@ -23,12 +23,19 @@ $conn = new Database();
 $db = $conn->nadviazSpojenie();
 
 if($db){
-    echo "Databaza je pripojena <br>";
+    /*echo "Databaza je pripojena <br>";
     $novyProdukt = new Produkt("rohz", 1200);
 
     if($novyProdukt->uloz($db)){
         echo "Produkt bol ulozeny do databazy.";
     }else{
         echo "Pri ukladani zaznamu doslo ku chybe.";
+    }*/
+
+    $zoznamProduktov = Produkt::nacitajVsetky($db);
+
+    foreach($zoznamProduktov as $produkt){
+        echo $produkt->getInfo()."<br>";
     }
+   
 }

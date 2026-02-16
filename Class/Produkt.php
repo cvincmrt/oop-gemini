@@ -31,4 +31,21 @@ class Produkt{
 
         return false;
     }
+
+    public static function nacitajVsetky($db){
+        $produkty = [];
+
+        $sql = "SELECT nazov, cena FROM produkty";
+
+        $stmt = $db->query($sql);
+        
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            
+            $objekt = new Produkt($row["nazov"], $row["cena"]);
+        
+            $produkty[] = $objekt;
+        }    
+        
+        return $produkty;
+    }
 }
