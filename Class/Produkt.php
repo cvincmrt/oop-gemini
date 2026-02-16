@@ -48,4 +48,28 @@ class Produkt{
         
         return $produkty;
     }
+
+    public static function najdiPodlaNazvu($db, $hladany){
+        $sql = "SELECT nazov, cena FROM produkty WHERE nazov = :nazov";
+
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":nazov", $hladany);
+
+        $stmt->execute();
+
+        if($row = $stmt->FETCH(PDO::FETCH_ASSOC)){
+           
+            $objekt = new Produkt($row["nazov"], $row["cena"]);
+            return $objekt;
+        }else{
+            return null;
+        }
+
+       
+       
+
+        
+        
+
+    }
 }

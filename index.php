@@ -31,11 +31,24 @@ if($db){
     }else{
         echo "Pri ukladani zaznamu doslo ku chybe.";
     }*/
-
-    $zoznamProduktov = Produkt::nacitajVsetky($db);
+/////////////////////////////////////////////////////////////////
+    /*$zoznamProduktov = Produkt::nacitajVsetky($db);
 
     foreach($zoznamProduktov as $produkt){
         echo $produkt->getInfo()."<br>";
-    }
+    }*/
+/////////////////////////////////////////////////////////////////
+    $hladany = "vesiak";
+    $hladanyProdukt = Produkt::najdiPodlaNazvu($db, $hladany);
+   
+    if($hladanyProdukt){
+        echo $hladanyProdukt->getInfo();
+   }else{
+        echo "Hladany produkt nemame na sklade";
+   } 
+  
+    
+
+
    
 }
