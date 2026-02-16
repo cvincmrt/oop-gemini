@@ -19,10 +19,16 @@ $kosik->pridajPolozku(new Potravina("paradajky", 50, "14. 02. 2026"));
 //$kosik->vypisKosik();
 //echo $kosik->celkovaSuma();
 
-$database = new Database();
+$conn = new Database();
+$db = $conn->nadviazSpojenie();
 
-if($database->nadviazSpojenie()){
-    echo "Databaza je pripojena";
-}else{
-    echo "Pripojenie k databaze sa nepodarilo";
+if($db){
+    echo "Databaza je pripojena <br>";
+    $novyProdukt = new Produkt("rohz", 1200);
+
+    if($novyProdukt->uloz($db)){
+        echo "Produkt bol ulozeny do databazy.";
+    }else{
+        echo "Pri ukladani zaznamu doslo ku chybe.";
+    }
 }

@@ -3,8 +3,8 @@
 class Database{
     private string $host = "localhost";
     private string $db_name = "eshop";
-    private string $username = "admin";
-    private string $password = "nbu123";
+    private string $username = "root";
+    private string $password = "";
     public $conn;
 
     public function nadviazSpojenie(){
