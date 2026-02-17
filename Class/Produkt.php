@@ -9,13 +9,16 @@ class Produkt{
         $this->cena = $cena;
     }
 
+
     public function getInfo(): string{
         return "Produkt: {$this->nazov}, Cena: {$this->cena} Euro.";
     }
 
+
     public function getPrice(): string{
         return $this->cena;
     }
+
 
     public function uloz($db): bool{
 
@@ -31,6 +34,7 @@ class Produkt{
 
         return false;
     }
+
 
     public static function nacitajVsetky($db){
         $produkty = [];
@@ -49,6 +53,7 @@ class Produkt{
         return $produkty;
     }
 
+
     public static function najdiPodlaNazvu($db, $hladany){
         $sql = "SELECT nazov, cena FROM produkty WHERE nazov = :nazov";
 
@@ -64,12 +69,18 @@ class Produkt{
         }else{
             return null;
         }
-
-       
-       
-
-        
-        
-
     }
+
+    public function aktualizovatCenu($db, float: $novaCena): bool{
+        $this->cena = $novaCena;
+
+        $sql = "UPDATE produkty SET cena = :cena WHERE nazov = :nazov";
+        $stmt = $db->prepare($sql);
+
+        $stmt->bindParam(":cena", $this->cena);
+        $stmt->bindParam(":nazov", $this->nazov);
+
+        return $stmt->execute();
+    } 
+
 }

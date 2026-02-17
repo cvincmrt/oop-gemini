@@ -23,6 +23,8 @@ $conn = new Database();
 $db = $conn->nadviazSpojenie();
 
 if($db){
+
+////////////////////////////////////////////////////////////////
     /*echo "Databaza je pripojena <br>";
     $novyProdukt = new Produkt("rohz", 1200);
 
@@ -31,13 +33,16 @@ if($db){
     }else{
         echo "Pri ukladani zaznamu doslo ku chybe.";
     }*/
+
 /////////////////////////////////////////////////////////////////
     /*$zoznamProduktov = Produkt::nacitajVsetky($db);
 
     foreach($zoznamProduktov as $produkt){
         echo $produkt->getInfo()."<br>";
     }*/
+        
 /////////////////////////////////////////////////////////////////
+
     $hladany = "vesiak";
     $hladanyProdukt = Produkt::najdiPodlaNazvu($db, $hladany);
    
@@ -47,8 +52,4 @@ if($db){
         echo "Hladany produkt nemame na sklade";
    } 
   
-    
-
-
-   
 }
