@@ -43,13 +43,29 @@ if($db){
         
 /////////////////////////////////////////////////////////////////
 
-    $hladany = "vesiak";
+    /*$hladany = "vesiak";
     $hladanyProdukt = Produkt::najdiPodlaNazvu($db, $hladany);
    
     if($hladanyProdukt){
         echo $hladanyProdukt->getInfo();
    }else{
         echo "Hladany produkt nemame na sklade";
-   } 
+   }*/
+/////////////////////////////////////////////////////////////////
+
+$hladany = "rohz";
+$rohoz = Produkt::najdipodlaNazvu($db, $hladany);
+
+if($rohoz){
+    $rohoz->aktualizovatCenu($db, 888);
+    echo "Cena rohoze bola aktualizovana na 888 euro.";
+}
+
+if(Produkt::vymazat($db, "stolička")){
+    echo "Produkt stolička bol vymazany";
+}
+
+
+
   
 }

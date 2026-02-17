@@ -71,7 +71,7 @@ class Produkt{
         }
     }
 
-    public function aktualizovatCenu($db, float: $novaCena): bool{
+    public function aktualizovatCenu($db, float $novaCena){
         $this->cena = $novaCena;
 
         $sql = "UPDATE produkty SET cena = :cena WHERE nazov = :nazov";
@@ -82,5 +82,15 @@ class Produkt{
 
         return $stmt->execute();
     } 
+
+    public static function vymazat($db, string $nazov){
+        $sql = "DELETE FROM produkty WHERE nazov = :nazov";
+        $stmt = $db->prepare($sql);
+
+        $stmt->bindParam(":nazov", $nazov);
+
+         return $stmt->execute();
+    }
+
 
 }
