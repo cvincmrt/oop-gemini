@@ -1,5 +1,8 @@
 <?php
 
+namespace App;
+use PDO;
+
 interface SposobPlatby{
     public function zaplat(float $suma): void;
 }

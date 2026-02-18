@@ -1,8 +1,14 @@
 <?php
-include "init.php";
+require_once 'vendor/autoload.php';
 
+use App\Database;
+use App\Produkt;
+use App\Kosik;
+use App\Platba;
+use App\Elektronika;
+use App\Potravina;
 
-
+/*
 $kosik = new Kosik();
 
 $kosik->pridajPolozku(new Produkt("lavica", 100));
@@ -10,6 +16,7 @@ $kosik->pridajPolozku(new Produkt("okno", 100));
 $kosik->pridajPolozku(new Produkt("dvere", 100));
 $kosik->pridajPolozku(new Elektronika("lampa", 250, 8));
 $kosik->pridajPolozku(new Potravina("paradajky", 50, "14. 02. 2026"));
+*/
 
 //Visa, ApplePay, Dobierka
 //$metoda = new Dobierka();

@@ -1,4 +1,8 @@
 <?php
+
+namespace App;
+use PDO;
+
 class Elektronika extends Produkt{
     private int $zaruka;
 

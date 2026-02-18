@@ -1,5 +1,8 @@
 <?php
 
+namespace App;
+use PDO; 
+
 class Produkt{
     private string $nazov;
     private float $cena;

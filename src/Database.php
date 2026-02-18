@@ -1,5 +1,8 @@
 <?php
 
+namespace App;
+use PDO;
+
 class Database{
     private string $host = "localhost";
     private string $db_name = "eshop";
